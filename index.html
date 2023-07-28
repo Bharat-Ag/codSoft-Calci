@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body class="flex">
+    <h1>
+      Simple Calculator <br />
+      using HTML, Css, JS
+    </h1>
+    <div class="container">
+      <div class="screen">
+        <input type="text" name="display" class="input" />
+      </div>
+      <div class="help flex">
+        <button class="button flex">C</button>
+        <button class="button flex">00</button>
+        <button class="button flex">DEL</button>
+      </div>
+      <div class="btn flex">
+        <button class="button flex">7</button>
+        <button class="button flex">8</button>
+        <button class="button flex">9</button>
+        <button class="button flex">-</button>
+      </div>
+      <div class="btn flex">
+        <button class="button flex">4</button>
+        <button class="button flex">5</button>
+        <button class="button flex">6</button>
+        <button class="button flex">*</button>
+      </div>
+      <div class="btn flex">
+        <button class="button flex">1</button>
+        <button class="button flex">2</button>
+        <button class="button flex">3</button>
+        <button class="button flex">/</button>
+      </div>
+      <div class="btn flex">
+        <button class="button flex">0</button>
+        <button class="button flex">.</button>
+        <button class="button flex">=</button>
+        <button class="button flex">+</button>
+      </div>
+    </div>
+    <script>
+      let string = "";
+      let buttons = document.querySelectorAll("button");
+      let opt = document.querySelector(".input");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          if (e.target.innerText == "=") {
+            string = eval(string);
+            opt.value = string;
+          } else if (e.target.innerText == "C") {
+            string = "";
+            opt.value = string;
+          } else if (e.target.innerText == "DEL") {
+            string = string.toString().slice(0, -1);
+            opt.value = string;
+          } else {
+            string += e.target.innerText;
+            opt.value = string;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
